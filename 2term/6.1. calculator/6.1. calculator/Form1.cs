@@ -19,6 +19,13 @@ namespace _6._1.calculator
         enum Operation { plus, minus, multiply, divide };
         private Operation operation = Operation.plus;
 
+        /// <summary>
+        /// Discription of operation's switching.
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <param name="firstNumber"></param>
+        /// <param name="inputNumber"></param>
+        /// <returns></returns>
         private double executeOperation(Operation operation, double firstNumber, double inputNumber)
         {
             switch (operation) {
@@ -30,6 +37,9 @@ namespace _6._1.calculator
             return 0;
         }
 
+        /// <summary>
+        /// Behaivor of calculator after click on the button.
+        /// </summary>
         private void OnButtonClick()
         {
             if (!firstRecorded)
@@ -59,6 +69,10 @@ namespace _6._1.calculator
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Record Number.
+        /// </summary>
+        /// <param name="number"></param>
         private void recordNumber(int number)
         {
             textBox1.Text += number;
@@ -131,6 +145,11 @@ namespace _6._1.calculator
             plus = false;
         }
 
+        /// <summary>
+        /// Output result.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonEqualsClick(object sender, EventArgs e)
         {
             firstNumber = executeOperation(operation, firstNumber, Convert.ToDouble(textBox1.Text));
@@ -138,6 +157,9 @@ namespace _6._1.calculator
             firstRecorded = false;
         }
 
+        /// <summary>
+        /// Let's subtract something!
+        /// </summary>
         bool minus = false;
         private void OnButtonMinusClick(object sender, EventArgs e)
         {
@@ -146,6 +168,9 @@ namespace _6._1.calculator
             minus = false;
         }
 
+        /// <summary>
+        /// Let's multiply something!
+        /// </summary>
         bool multiply = false;
         private void OnButtonMultiplyClick(object sender, EventArgs e)
         {
@@ -154,6 +179,9 @@ namespace _6._1.calculator
             multiply = false;
         }
 
+        /// <summary>
+        /// Let's divide something!
+        /// </summary>
         bool divide = false;
         private void OnButtonDivideClick(object sender, EventArgs e)
         {
@@ -162,6 +190,11 @@ namespace _6._1.calculator
             divide = false;
         }
 
+        /// <summary>
+        /// Clear all, but not your soul.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonCClick(object sender, EventArgs e)
         {
             firstNumber = 0;
@@ -169,6 +202,11 @@ namespace _6._1.calculator
             textBox1.Text = "";
         }
 
+        /// <summary>
+        /// Just foget number.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonCEClick(object sender, EventArgs e)
         {
             textBox1.Text = "";
