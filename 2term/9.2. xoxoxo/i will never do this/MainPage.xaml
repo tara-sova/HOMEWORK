@@ -1,0 +1,26 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="i_will_never_do_this.MainPage"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Button Content="Button" x:Name="button1" HorizontalAlignment="Left" Margin="67,72,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <Button Content="Button" x:Name="button9" HorizontalAlignment="Left" Margin="227,126,0,0" VerticalAlignment="Top" Width="75" Click="button9_Click"/>
+        <Button Content="Button" x:Name="button8" HorizontalAlignment="Left" Margin="147,126,0,0" VerticalAlignment="Top" Width="75" Click="button8_Click"/>
+        <Button Content="Button" x:Name="button7" HorizontalAlignment="Left" Margin="67,126,0,0" VerticalAlignment="Top" Width="75" Click="button7_Click"/>
+        <Button Content="Button" x:Name="button6" HorizontalAlignment="Left" Margin="227,99,0,0" VerticalAlignment="Top" Width="75" Click="button6_Click"/>
+        <Button Content="Button" x:Name="button5" HorizontalAlignment="Left" Margin="147,99,0,0" VerticalAlignment="Top" Width="75" Click="button5_Click"/>
+        <Button Content="Button" x:Name="button4" HorizontalAlignment="Left" Margin="67,99,0,0" VerticalAlignment="Top" Width="75" Click="button4_Click"/>
+        <Button Content="Button" x:Name="button3" HorizontalAlignment="Left" Margin="227,72,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
+        <Button Content="Button" x:Name="button2" HorizontalAlignment="Left" Margin="147,72,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
+
+        <sdk:Label Name="label1" HorizontalAlignment="Left" Height="28" Margin="104,153,0,0" VerticalAlignment="Top" Width="120"/>
+        <sdk:Label Name="label2" HorizontalAlignment="Left" Height="28" Margin="104,186,0,0" VerticalAlignment="Top" Width="120"/>
+        <sdk:Label Name="label3" HorizontalAlignment="Left" Height="28" Margin="104,219,0,0" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</UserControl>

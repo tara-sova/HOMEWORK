@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "i will never do this", "i will never do this\i will never do this.csproj", "{85F6C2A9-317F-4AEB-994D-A5639B1B2F36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "i will never do this.Web", "i will never do this.Web\i will never do this.Web.csproj", "{BA402437-A21F-4B59-B121-B4AF95AF5E71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85F6C2A9-317F-4AEB-994D-A5639B1B2F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F6C2A9-317F-4AEB-994D-A5639B1B2F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85F6C2A9-317F-4AEB-994D-A5639B1B2F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85F6C2A9-317F-4AEB-994D-A5639B1B2F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA402437-A21F-4B59-B121-B4AF95AF5E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA402437-A21F-4B59-B121-B4AF95AF5E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA402437-A21F-4B59-B121-B4AF95AF5E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA402437-A21F-4B59-B121-B4AF95AF5E71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
