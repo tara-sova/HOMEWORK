@@ -90,7 +90,11 @@
             head = newElement;
         }
 
-        public void IncertToTheEnd(int value)
+        /// <summary>
+        /// Insert element to the ending of list.
+        /// </summary>
+        /// <param name="value"></param>
+        public void InsertToTheEnd(int value)
         {
             if (head == null)
             {
@@ -231,11 +235,19 @@
             return result;
         }
 
+        /// <summary>
+        /// Get first element of the list.
+        /// </summary>
+        /// <returns></returns>
         public ListElement GettingFirst()
         {
             return this.head;
         }
 
+        /// <summary>
+        /// Get a value of first list's element.
+        /// </summary>
+        /// <returns></returns>
         public int GettingFirstValue()
         {
             return this.head.Value;
@@ -251,6 +263,10 @@
             return tempElement;
         }
 
+        /// <summary>
+        /// Returns number of list's element.
+        /// </summary>
+        /// <returns></returns>
         public int CounterOfElements()
         {
             int counter = 0;
@@ -263,6 +279,9 @@
             return counter;
         }
 
+        /// <summary>
+        /// Delete head but save a list.
+        /// </summary>
         public void HeadRemoving()
         {
             ListElement removingElement = head;
