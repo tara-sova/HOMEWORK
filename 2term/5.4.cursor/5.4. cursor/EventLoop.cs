@@ -13,6 +13,9 @@ namespace _5._4.cursor
         public event EventHandler<EventArgs> UpHandler = (sender, args) => { };
         public event EventHandler<EventArgs> DownHandler = (sender, args) => { };
 
+        /// <summary>
+        /// Launch of event loop.
+        /// </summary>
         public void Run()
         {
             while (true)

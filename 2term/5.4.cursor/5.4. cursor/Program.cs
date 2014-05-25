@@ -26,7 +26,6 @@ namespace _5._4.cursor
             var log = new List<string>();
 
             eventLoop.Run();
-
         }
     }
 }
