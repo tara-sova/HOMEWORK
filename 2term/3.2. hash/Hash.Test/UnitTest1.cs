@@ -5,7 +5,7 @@ using _2._3.hash;
 
 namespace Hash1.Test
 {
-    [TestClass]
+    [TestClass] 
     public class UnitTest1
     {
         [TestMethod]
