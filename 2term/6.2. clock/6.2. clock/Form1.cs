@@ -20,6 +20,11 @@ namespace _6._2.clock
 
         private DateTime time = new DateTime();
 
+        /// <summary>
+        /// Our watch starts tick-tock.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer1Tick(object sender, EventArgs e)
         {
             time = DateTime.Now;
