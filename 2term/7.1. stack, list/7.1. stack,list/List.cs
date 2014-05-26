@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace _7._1.stack_list
 {
     /// <summary>
     /// List based on references.
     /// </summary>
-    public class List<ElementType>
+    public class List<ElementType> : IEnumerable<ElementType>
     {
         /// <summary>
         /// Description of List's element.
         /// </summary>
-        private class ListElement
+        public class ListElement
         {
             /// <summary>
             /// Meaning of the List's element.
@@ -32,8 +31,6 @@ namespace _7._1.stack_list
             /// </summary>
             public ListElement Previous { get; set; }
         }
-
-
 
         /// <summary>
         /// Pointer of the first List's element which could exist or not.
@@ -74,6 +71,14 @@ namespace _7._1.stack_list
                     return;
                 }
                 tempElement = tempElement.Next;
+            }
+
+            if (tempElement.Next == null)
+            {
+                tempElement.Next = newElement;
+                newElement.Previous = tempElement;
+                newElement.Next = null;
+                return;
             }
 
             ListElement elementAfterTemp = tempElement.Next;
@@ -215,5 +220,22 @@ namespace _7._1.stack_list
             }
             return result;
         }
+        public ListElement GetFirst()
+        {
+            return head;
+        }
+
+        public IEnumerator<ElementType> GetEnumerator()
+        {
+            var enumerator = new Enumerator<ElementType>(this);
+            return enumerator;
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            var enumerator = new Enumerator<ElementType>(this);
+            return enumerator;
+        }
+
     }
 }
