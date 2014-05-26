@@ -32,5 +32,17 @@ namespace _4._2.UniqueList
             }
         }
 
+        public virtual void Removing1(int position)
+        {
+            if (TheExistChecking(this.GettingOfValueByPosition(position)))
+            {
+                throw new MyException("LOSER");
+            }
+            else
+            {
+                this.RemovingByPosition(position);
+            }
+        }
+
     }
 }

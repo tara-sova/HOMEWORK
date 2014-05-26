@@ -100,6 +100,15 @@
             this.Push(value);
         }
 
+        public int GettingFirst()
+        {
+            if (!IsEmpty())
+            {
+                return head.Value;
+            }
+            return 0;
+        }
+
         /// <summary>
         /// Removing element by using a position.
         /// </summary>
@@ -129,6 +138,12 @@
 
             tempElement.Previous.Next = tempElement.Next;
             tempElement.Next.Previous = tempElement.Previous;
+        }
+
+
+        public virtual void Removing1(int position)
+        {
+            this.RemovingByPosition(position);
         }
 
         /// <summary>
@@ -238,5 +253,22 @@
 
             return false;
         }
+
+        /// <summary>
+        /// Calculate of list's size.
+        /// </summary>
+        public int Size()
+        {
+            ListElement tempElement = head;
+            int numberOfElements = 0;
+
+            while (tempElement != null)
+            {
+                tempElement = tempElement.Next;
+                ++numberOfElements;
+            }
+            return numberOfElements;
+        }
+
     }
 }
