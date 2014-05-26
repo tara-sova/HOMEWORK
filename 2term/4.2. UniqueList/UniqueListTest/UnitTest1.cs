@@ -10,8 +10,8 @@ namespace UniqueListTest
         [TestInitialize]
         public void Initialize()
         {
-            var list = new List();
-            var uniqueList = new UniqueList();
+            list = new List();
+            uniqueList = new UniqueList();
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace UniqueListTest
             list.Insert1(5, 1);
             list.Insert1(2, 2);
 
-            Assert.AreEqual(list.GettingOfValueByPosition(1), uniqueList.GettingOfValueByPosition(2));
+            Assert.AreEqual(list.GettingOfValueByPosition(2), uniqueList.GettingOfValueByPosition(1));
         }
 
         [TestMethod]

@@ -67,6 +67,14 @@
                 tempElement = tempElement.Next;
             }
 
+            if (tempElement.Next == null)
+            {
+                tempElement.Next = newElement;
+                newElement.Previous = tempElement;
+                newElement.Next = null;
+                return;
+            }
+
             ListElement elementAfterTemp = tempElement.Next;
             tempElement.Next = newElement;
             newElement.Previous = tempElement;
