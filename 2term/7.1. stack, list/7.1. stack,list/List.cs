@@ -112,6 +112,12 @@ namespace _7._1.stack_list
         {
             ListElement tempElement = head;
 
+            if ((position == 0) && (head.Next == null))
+            {
+                this.head = null;
+                return;
+            }
+
             if (position == 0)
             {
                 head.Value = head.Next.Value;
@@ -191,7 +197,7 @@ namespace _7._1.stack_list
         }
 
         /// <summary>
-        /// Chek of existence elements in List.
+        /// Check of existence elements in List.
         /// </summary>
         /// <returns></returns>
         public bool IsEmpty()
@@ -220,17 +226,30 @@ namespace _7._1.stack_list
             }
             return result;
         }
+
+        /// <summary>
+        /// Getting list's first element.
+        /// </summary>
+        /// <returns></returns>
         public ListElement GetFirst()
         {
             return head;
         }
 
+        /// <summary>
+        /// Getting of Enumerator for our list.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<ElementType> GetEnumerator()
         {
             var enumerator = new Enumerator<ElementType>(this);
             return enumerator;
         }
 
+        /// <summary>
+        /// Getting of Enumerator for our list but with some object type.
+        /// </summary>
+        /// <returns></returns>
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             var enumerator = new Enumerator<ElementType>(this);

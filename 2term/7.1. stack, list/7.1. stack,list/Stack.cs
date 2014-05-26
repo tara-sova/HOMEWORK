@@ -4,7 +4,7 @@
     /// Stack based on references.
     /// </summary>
     /// 
-    public class Stack
+    public class Stack<ElementType>
     {
         /// <summary>
         /// Discription of Stack's element.
@@ -14,7 +14,7 @@
             /// <summary>
             /// Meaning of the Stack's element.
             /// </summary>
-            public int Value { get; set; }
+            public ElementType Value { get; set; }
 
             /// <summary>
             /// Field that point on the next element.
@@ -31,7 +31,7 @@
         /// Push value to a Stack.
         /// </summary>
         /// <param name="value">Value to be pushed.</param>
-        public void Push(int value)
+        public void Push(ElementType value)
         {
             var newElement = new StackElement()
             {
@@ -46,14 +46,14 @@
         /// Take Stack's top element.
         /// </summary>
         /// <returns></returns>
-        public int Pop()
+        public ElementType Pop()
         {
             if (head == null)
             {
-                return -1;
+                IsEmpty();
             }
 
-            var temp = head.Value;
+            ElementType temp = head.Value;
             head = head.Next;
             return temp;
         }
