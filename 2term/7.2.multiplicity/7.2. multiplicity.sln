@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.2. multiplicity", "7.2. multiplicity\7.2. multiplicity.csproj", "{1DB71B4D-C87C-45B7-8BF1-DFF53C251CEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplicityTest", "MultiplicityTest\MultiplicityTest.csproj", "{5D4674D9-184F-41C0-89B7-D3E9A6CC77C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1DB71B4D-C87C-45B7-8BF1-DFF53C251CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB71B4D-C87C-45B7-8BF1-DFF53C251CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB71B4D-C87C-45B7-8BF1-DFF53C251CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D4674D9-184F-41C0-89B7-D3E9A6CC77C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D4674D9-184F-41C0-89B7-D3E9A6CC77C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D4674D9-184F-41C0-89B7-D3E9A6CC77C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D4674D9-184F-41C0-89B7-D3E9A6CC77C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,9 +12,9 @@ namespace _7._2.multiplicity
         static void Main(string[] args)
         {
             Multiplicity<int> Multiplicity1 = new Multiplicity<int>();
-            Multiplicity1.Incert(1);
-            Multiplicity1.Incert(2);
-            Multiplicity1.Incert(3);
+            Multiplicity1.Insert(1);
+            Multiplicity1.Insert(2);
+            Multiplicity1.Insert(3);
 
             Multiplicity<int> Multiplicity2 = new Multiplicity<int>();
             //Multiplicity2.Incert(1);

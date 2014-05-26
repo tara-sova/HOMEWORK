@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace _7._2.multiplicity
 {
+    /// <summary>
+    /// Class that describes multiplicity.
+    /// </summary>
+    /// <typeparam name="ElementType"></typeparam>
     public class Multiplicity<ElementType>
     {
         /// <summary>
@@ -22,22 +26,18 @@ namespace _7._2.multiplicity
             /// Field that point on the next element.
             /// </summary>
             public MultiplicityElement Next { get; set; }
-
-            ///// <summary>
-            ///// Field that point on the previous element.
-            ///// </summary>
-            //public MultiplicityElement Previous { get; set; }
         }
-
-
 
         /// <summary>
         /// Pointer of the first List's element which could exist or not.
         /// </summary>
         private MultiplicityElement head = null;
 
-
-        public void Incert(ElementType value)
+        /// <summary>
+        /// Add element to multiplicity.
+        /// </summary>
+        /// <param name="value"></param>
+        public void Insert(ElementType value)
         {
             var newElement = new MultiplicityElement()
             {
@@ -65,7 +65,6 @@ namespace _7._2.multiplicity
                 }
                 tempElement = tempElement.Next;
             }
-
             tempElement.Next = newElement;
         }
 
@@ -109,6 +108,10 @@ namespace _7._2.multiplicity
             return result;
         }
 
+        /// <summary>
+        /// Delete one of the multiplicity's element.
+        /// </summary>
+        /// <param name="value"></param>
         public void RemovingOfElement(ElementType value)
         {
             MultiplicityElement tempElement = head;
@@ -136,6 +139,11 @@ namespace _7._2.multiplicity
             }
         }
 
+        /// <summary>
+        /// Check element's of interesting existence.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public bool ExistenceChecking(ElementType value)
         {
             if (IsEmpty())
@@ -159,6 +167,11 @@ namespace _7._2.multiplicity
             return false;
         }
 
+        /// <summary>
+        /// Getting result of intersection of two multiplicity.
+        /// </summary>
+        /// <param name="First"></param>
+        /// <param name="Second"></param>
         public void Intersection(Multiplicity<ElementType> First, Multiplicity<ElementType> Second)
         {
             if ((First.IsEmpty()) || (Second.IsEmpty()))
@@ -176,7 +189,7 @@ namespace _7._2.multiplicity
                 {
                     if (tempFirst.Value.Equals(tempSecond.Value))
                     {
-                        this.Incert(tempFirst.Value);
+                        this.Insert(tempFirst.Value);
                     }
                     tempSecond = tempSecond.Next;
                 }
@@ -185,26 +198,27 @@ namespace _7._2.multiplicity
             }
         }
 
-
+        /// <summary>
+        /// Getting result of union of two multiplicity.
+        /// </summary>
+        /// <param name="First"></param>
+        /// <param name="Second"></param>
         public void Union(Multiplicity<ElementType> First, Multiplicity<ElementType> Second)
         {
-
-
             MultiplicityElement tempFirst = First.head;
             MultiplicityElement tempSecond = Second.head;
 
             while (tempFirst != null)
             {
-                this.Incert(tempFirst.Value);
+                this.Insert(tempFirst.Value);
                 tempFirst = tempFirst.Next;
             }
 
             while (tempSecond != null)
             {
-                this.Incert(tempSecond.Value);
+                this.Insert(tempSecond.Value);
                 tempSecond = tempSecond.Next;
             }
         }
-
     }
 }
