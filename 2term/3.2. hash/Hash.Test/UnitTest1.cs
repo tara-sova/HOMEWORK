@@ -8,12 +8,16 @@ namespace Hash1.Test
     [TestClass]  
     public class UnitTest1
     {
+        [TestInitialize]
+        public void Initialize()
+        {
+            HashFunction hashFunction = new HashFunction1();
+            hash = new Hash(hashFunction);
+        }
+
         [TestMethod]
         public void ExistTrueTest()
         {
-            HashFunction hashFunction = new HashFunction1();
-            var hash = new Hash(hashFunction);
-             
             hash.InsertToHashTable(10);
             hash.InsertToHashTable(20);
             hash.InsertToHashTable(30);
@@ -24,9 +28,6 @@ namespace Hash1.Test
         [TestMethod]
         public void ExistFalseTest()
         {
-            HashFunction hashFunction = new HashFunction1();
-            var hash = new Hash(hashFunction);
-            
             hash.InsertToHashTable(10);
             hash.InsertToHashTable(20);
             hash.InsertToHashTable(30);
@@ -37,9 +38,6 @@ namespace Hash1.Test
         [TestMethod]
         public void RemovingOfElement()
         {
-            HashFunction hashFunction = new HashFunction1();
-            var hash = new Hash(hashFunction);
-
             hash.InsertToHashTable(20);
             hash.InsertToHashTable(20);
             hash.InsertToHashTable(30);
@@ -47,5 +45,7 @@ namespace Hash1.Test
             hash.Remove(30);
             Assert.IsFalse(hash.Exist(30));
         }
+
+        private Hash hash;
     }
 }
