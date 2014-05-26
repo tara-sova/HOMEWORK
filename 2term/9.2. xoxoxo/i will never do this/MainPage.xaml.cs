@@ -106,7 +106,6 @@ namespace i_will_never_do_this
                 label1.Content = "Nobody is win";
                 label2.Content = numberOfFillingCells.ToString();
             }
-
         }
 
         private void AddO()
