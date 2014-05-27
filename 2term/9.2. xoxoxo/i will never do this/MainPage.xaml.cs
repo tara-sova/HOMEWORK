@@ -15,6 +15,10 @@ namespace i_will_never_do_this
     public partial class MainPage : UserControl
     {
         Button[] array = new Button[9];
+        bool[] checkArray = new bool[9];
+
+        private bool opportunityToPlay = false;
+
         public MainPage()
         {
             InitializeComponent();
@@ -27,6 +31,12 @@ namespace i_will_never_do_this
             array[6] = button7;
             array[7] = button8;
             array[8] = button9;
+
+            for (int j = 0; j < 9; ++j)
+            {
+                checkArray[j] = false;
+            }
+
             for(int i = 0; i < 9; ++i)
             {
                 array[i].Content = "-";
@@ -44,10 +54,12 @@ namespace i_will_never_do_this
             if (element == "X")
             {
                 label1.Content = "You win";
+                opportunityToPlay = true;
             }
             if (element == "O")
             {
                 label1.Content = "You lose";
+                opportunityToPlay = true;
             }
         }
 
@@ -110,6 +122,11 @@ namespace i_will_never_do_this
 
         private void AddO()
         {
+            if (opportunityToPlay)
+            {
+                return;
+            }
+
             for(int i = 0; i < 9; ++i)
             {
                 if ((array[i].Content.ToString() != "X") && (array[i].Content.ToString() != "O"))
@@ -127,6 +144,13 @@ namespace i_will_never_do_this
 
         private void UserMove(int number)
         {
+            checkArray[number] = true;
+
+            if (opportunityToPlay)
+            {
+                return;
+            }
+
             array[number].Content = "X";
             ++this.numberOfFillingCells;
 
@@ -153,120 +177,92 @@ namespace i_will_never_do_this
             WinCheck();
         }
 
-
-        private bool check1 = false;
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check1))
+            if ((this.numberOfFillingCells == 9) || (checkArray[0]))
             {
                 return;
             }
-
-            check1 = true;
 
             UserMove(0);
         }
 
-        bool check2 = false;
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check2))
+            if ((this.numberOfFillingCells == 9) || (checkArray[1]))
             {
                 return;
             }
-
-            check2 = true;
 
             UserMove(1);
         }
 
-        bool check3 = false;
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check3))
+            if ((this.numberOfFillingCells == 9) || (checkArray[2]))
             {
                 return;
             }
-
-            check3 = true;
 
             UserMove(2);
         }
 
-        bool check4 = false;
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check4))
+            if ((this.numberOfFillingCells == 9) || (checkArray[3]))
             {
                 return;
             }
-
-            check4 = true;
 
             UserMove(3);
         }
 
-        bool check5 = false;
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check5))
+            if ((this.numberOfFillingCells == 9) || (checkArray[4]))
             {
                 return;
             }
-
-            check5 = true;
 
             UserMove(4);
         }
 
-        bool check6 = false;
         private void button6_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check6))
+            if ((this.numberOfFillingCells == 9) || (checkArray[5]))
             {
                 return;
             }
-
-            check6 = true;
 
             UserMove(5);
         }
 
-        bool check7 = false;
         private void button7_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check7))
+            if ((this.numberOfFillingCells == 9) || (checkArray[6]))
             {
                 return;
             }
-
-            check7 = true;
 
             UserMove(6);
         }
 
-        bool check8 = false;
         private void button8_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check8))
+            if ((this.numberOfFillingCells == 9) || (checkArray[7]))
             {
                 return;
             }
-
-            check8 = true;
 
             UserMove(7);
         }
 
-        bool check9 = false;
         private void button9_Click(object sender, RoutedEventArgs e)
         {
-            if ((this.numberOfFillingCells == 9) || (check9))
+            if ((this.numberOfFillingCells == 9) || (checkArray[8]))
             {
                 return;
             }
-
-            check9 = true;
 
             UserMove(8);
         }
