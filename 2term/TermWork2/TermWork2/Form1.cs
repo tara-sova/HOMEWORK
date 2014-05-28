@@ -33,7 +33,7 @@ namespace TermWork2
         {
             this.Close();
         }
-
+         
         /// <summary>
         /// Programm's behavior after click on button1.
         /// </summary>
