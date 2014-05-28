@@ -8,15 +8,15 @@
     d:DesignHeight="300" d:DesignWidth="400">
 
     <Grid x:Name="LayoutRoot" Background="White">
-        <Button Content="Button" x:Name="button1" HorizontalAlignment="Left" Margin="67,72,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <Button Content="Button" x:Name="button9" HorizontalAlignment="Left" Margin="227,126,0,0" VerticalAlignment="Top" Width="75" Click="button9_Click"/>
-        <Button Content="Button" x:Name="button8" HorizontalAlignment="Left" Margin="147,126,0,0" VerticalAlignment="Top" Width="75" Click="button8_Click"/>
-        <Button Content="Button" x:Name="button7" HorizontalAlignment="Left" Margin="67,126,0,0" VerticalAlignment="Top" Width="75" Click="button7_Click"/>
-        <Button Content="Button" x:Name="button6" HorizontalAlignment="Left" Margin="227,99,0,0" VerticalAlignment="Top" Width="75" Click="button6_Click"/>
-        <Button Content="Button" x:Name="button5" HorizontalAlignment="Left" Margin="147,99,0,0" VerticalAlignment="Top" Width="75" Click="button5_Click"/>
-        <Button Content="Button" x:Name="button4" HorizontalAlignment="Left" Margin="67,99,0,0" VerticalAlignment="Top" Width="75" Click="button4_Click"/>
-        <Button Content="Button" x:Name="button3" HorizontalAlignment="Left" Margin="227,72,0,0" VerticalAlignment="Top" Width="75" Click="button3_Click"/>
-        <Button Content="Button" x:Name="button2" HorizontalAlignment="Left" Margin="147,72,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
+        <Button Content="Button" x:Name="button1" HorizontalAlignment="Left" Margin="67,72,0,0" VerticalAlignment="Top" Width="75" Click="OnButton1Click"/>
+        <Button Content="Button" x:Name="button9" HorizontalAlignment="Left" Margin="227,126,0,0" VerticalAlignment="Top" Width="75" Click="OnButton9Click"/>
+        <Button Content="Button" x:Name="button8" HorizontalAlignment="Left" Margin="147,126,0,0" VerticalAlignment="Top" Width="75" Click="OnButton8Click"/>
+        <Button Content="Button" x:Name="button7" HorizontalAlignment="Left" Margin="67,126,0,0" VerticalAlignment="Top" Width="75" Click="OnButton7Click"/>
+        <Button Content="Button" x:Name="button6" HorizontalAlignment="Left" Margin="227,99,0,0" VerticalAlignment="Top" Width="75" Click="OnButton6Click"/>
+        <Button Content="Button" x:Name="button5" HorizontalAlignment="Left" Margin="147,99,0,0" VerticalAlignment="Top" Width="75" Click="OnButton5Click"/>
+        <Button Content="Button" x:Name="button4" HorizontalAlignment="Left" Margin="67,99,0,0" VerticalAlignment="Top" Width="75" Click="OnButton4Click"/>
+        <Button Content="Button" x:Name="button3" HorizontalAlignment="Left" Margin="227,72,0,0" VerticalAlignment="Top" Width="75" Click="OnButton3Click"/>
+        <Button Content="Button" x:Name="button2" HorizontalAlignment="Left" Margin="147,72,0,0" VerticalAlignment="Top" Width="75" Click="OnButton2Click"/>
 
         <sdk:Label Name="label1" HorizontalAlignment="Left" Height="28" Margin="104,153,0,0" VerticalAlignment="Top" Width="120"/>
         <sdk:Label Name="label2" HorizontalAlignment="Left" Height="28" Margin="104,186,0,0" VerticalAlignment="Top" Width="120"/>

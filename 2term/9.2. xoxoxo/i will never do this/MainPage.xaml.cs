@@ -49,6 +49,10 @@ namespace i_will_never_do_this
 
         private int numberOfFillingCells = 0;
 
+        /// <summary>
+        /// Match button's texts.
+        /// </summary>
+        /// <param name="element"></param>
         private void Matching(string element)
         {
             if (element == "X")
@@ -63,42 +67,27 @@ namespace i_will_never_do_this
             }
         }
 
+        /// <summary>
+        /// Check game's situation.
+        /// </summary>
         private void WinCheck()
         {
-            if ((array[0].Content.ToString() == array[1].Content.ToString()) && (array[1].Content.ToString() == array[2].Content.ToString()))
+            for (int i = 0; i < 7; i += 3)
             {
-                Matching(array[0].Content.ToString());
-                return;
+                if ((array[i].Content.ToString() == array[i + 1].Content.ToString()) && (array[i + 1].Content.ToString() == array[i + 2].Content.ToString()))
+                {
+                    Matching(array[i].Content.ToString());
+                    return;
+                }
             }
 
-            if ((array[3].Content.ToString() == array[4].Content.ToString()) && (array[4].Content.ToString() == array[5].Content.ToString()))
+            for (int i = 0; i < 3; ++i)
             {
-                Matching(array[3].Content.ToString());
-                return;
-            }
-
-            if ((array[6].Content.ToString() == array[7].Content.ToString()) && (array[7].Content.ToString() == array[8].Content.ToString()))
-            {
-                Matching(array[6].Content.ToString());
-                return;
-            }
-
-            if ((array[0].Content.ToString() == array[3].Content.ToString()) && (array[3].Content.ToString() == array[6].Content.ToString()))
-            {
-                Matching(array[0].Content.ToString());
-                return;
-            }
-
-            if ((array[1].Content.ToString() == array[4].Content.ToString()) && (array[4].Content.ToString() == array[7].Content.ToString()))
-            {
-                Matching(array[1].Content.ToString());
-                return;
-            }
-
-            if ((array[2].Content.ToString() == array[5].Content.ToString()) && (array[5].Content.ToString() == array[8].Content.ToString()))
-            {
-                Matching(array[2].Content.ToString());
-                return;
+                if ((array[i].Content.ToString() == array[i + 3].Content.ToString()) && (array[i + 3].Content.ToString() == array[i + 6].Content.ToString()))
+                {
+                    Matching(array[i].Content.ToString());
+                    return;
+                }
             }
 
             if ((array[0].Content.ToString() == array[4].Content.ToString()) && (array[4].Content.ToString() == array[8].Content.ToString()))
@@ -120,6 +109,9 @@ namespace i_will_never_do_this
             }
         }
 
+        /// <summary>
+        /// Computer's move.
+        /// </summary>
         private void AddO()
         {
             if (opportunityToPlay)
@@ -141,7 +133,10 @@ namespace i_will_never_do_this
             }
         }
 
-
+        /// <summary>
+        /// User move.
+        /// </summary>
+        /// <param name="number"></param>
         private void UserMove(int number)
         {
             checkArray[number] = true;
@@ -177,7 +172,7 @@ namespace i_will_never_do_this
             WinCheck();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void OnButton1Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[0]))
             {
@@ -187,7 +182,7 @@ namespace i_will_never_do_this
             UserMove(0);
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void OnButton2Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[1]))
             {
@@ -197,7 +192,7 @@ namespace i_will_never_do_this
             UserMove(1);
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
+        private void OnButton3Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[2]))
             {
@@ -207,7 +202,7 @@ namespace i_will_never_do_this
             UserMove(2);
         }
 
-        private void button4_Click(object sender, RoutedEventArgs e)
+        private void OnButton4Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[3]))
             {
@@ -217,7 +212,7 @@ namespace i_will_never_do_this
             UserMove(3);
         }
 
-        private void button5_Click(object sender, RoutedEventArgs e)
+        private void OnButton5Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[4]))
             {
@@ -227,7 +222,7 @@ namespace i_will_never_do_this
             UserMove(4);
         }
 
-        private void button6_Click(object sender, RoutedEventArgs e)
+        private void OnButton6Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[5]))
             {
@@ -237,7 +232,7 @@ namespace i_will_never_do_this
             UserMove(5);
         }
 
-        private void button7_Click(object sender, RoutedEventArgs e)
+        private void OnButton7Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[6]))
             {
@@ -247,7 +242,7 @@ namespace i_will_never_do_this
             UserMove(6);
         }
 
-        private void button8_Click(object sender, RoutedEventArgs e)
+        private void OnButton8Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[7]))
             {
@@ -257,7 +252,7 @@ namespace i_will_never_do_this
             UserMove(7);
         }
 
-        private void button9_Click(object sender, RoutedEventArgs e)
+        private void OnButton9Click(object sender, RoutedEventArgs e)
         {
             if ((this.numberOfFillingCells == 9) || (checkArray[8]))
             {
