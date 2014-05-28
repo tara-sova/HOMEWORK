@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace _6._1.calculator
 {
-    public partial class Form1 : Form
+    public partial class Calculator : Form
     {
 
         private double firstNumber = 0;
@@ -64,7 +64,7 @@ namespace _6._1.calculator
             textBox1.Text = "";
         }
 
-        public Form1()
+        public Calculator()
         {
             InitializeComponent();
         }
