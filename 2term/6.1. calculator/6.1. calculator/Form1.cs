@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace _6._1.calculator
 {
+    /// <summary>
+    /// Class for calculating numbers.
+    /// </summary>
     public partial class Calculator : Form
     {
-
         private double firstNumber = 0;
         private bool firstRecorded = false;
 
@@ -78,21 +80,41 @@ namespace _6._1.calculator
             textBox1.Text += number;
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber4Click(object sender, EventArgs e)
         {
             recordNumber(4);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber5Click(object sender, EventArgs e)
         {
             recordNumber(5);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber2Click(object sender, EventArgs e)
         {
             recordNumber(2);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber0Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" && (!firstRecorded))
@@ -102,42 +124,84 @@ namespace _6._1.calculator
             textBox1.Text += "0";
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber1Click(object sender, EventArgs e)
         {
             recordNumber(1);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber3Click(object sender, EventArgs e)
         {
             recordNumber(3);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber6Click(object sender, EventArgs e)
         {
             recordNumber(6);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber7Click(object sender, EventArgs e)
         {
             recordNumber(7);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber8Click(object sender, EventArgs e)
         {
             recordNumber(8);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonNumber9Click(object sender, EventArgs e)
         {
             recordNumber(9);
         }
 
+        /// <summary>
+        /// Handler of this button click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonPointClick(object sender, EventArgs e)
         {
             textBox1.Text += ",";
         }
 
+        
         private bool plus = false;
+
+        /// <summary>
+        /// Let's sum something!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonPlusClick(object sender, EventArgs e)
         {
             plus = true;
@@ -157,10 +221,12 @@ namespace _6._1.calculator
             firstRecorded = false;
         }
 
+        bool minus = false;
         /// <summary>
         /// Let's subtract something!
         /// </summary>
-        bool minus = false;
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonMinusClick(object sender, EventArgs e)
         {
             minus = true;
@@ -168,10 +234,12 @@ namespace _6._1.calculator
             minus = false;
         }
 
+        bool multiply = false;
         /// <summary>
         /// Let's multiply something!
         /// </summary>
-        bool multiply = false;
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonMultiplyClick(object sender, EventArgs e)
         {
             multiply = true;
@@ -179,10 +247,12 @@ namespace _6._1.calculator
             multiply = false;
         }
 
+        bool divide = false;
         /// <summary>
         /// Let's divide something!
         /// </summary>
-        bool divide = false;
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnButtonDivideClick(object sender, EventArgs e)
         {
             divide = true;

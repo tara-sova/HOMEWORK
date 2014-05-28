@@ -102,5 +102,30 @@ namespace HashNamespace
                 bucket[i].Removing();
             }
         }
+
+        /// <summary>
+        /// Change hashfunction.
+        /// </summary>
+        public void ChangeHashfunction(HashFunction hashfunction)
+        {
+            List newList = new List();
+            for (int i = 0; i < 100; ++i)
+            {
+                var tempElement = bucket[i];
+                while (!tempElement.IsEmpty())
+                {
+                    newList.Push(tempElement.GetHead());
+                    tempElement.DeleteHead();
+                }
+            }
+
+            this.HashFunction = hashfunction;
+            while (!newList.IsEmpty())
+            {
+                int value = newList.GetHead();
+                newList.DeleteHead();
+                bucket[HashFunction.HashFunction(value)].Push(value);
+            }
+        }
     }
 }

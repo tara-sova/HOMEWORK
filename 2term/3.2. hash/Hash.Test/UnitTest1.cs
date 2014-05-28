@@ -46,6 +46,18 @@ namespace Hash1.Test
             Assert.IsFalse(hash.Exist(30));
         }
 
+        [TestMethod]
+        public void TestChangeHashFunction()
+        {
+            HashFunction hashfunction2 = new HashFunction2();
+            hash.InsertToHashTable(20);
+            hash.InsertToHashTable(15);
+
+            hash.ChangeHashfunction(hashfunction2);
+
+            Assert.IsTrue(hash.Exist(15));
+        }
+
         private Hash hash;
     }
 }

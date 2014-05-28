@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2._3.hash
 {
-    class HashFunction2 : HashFunction
+    public class HashFunction2 : HashFunction
     {
         /// <summary>
         /// Try to create a random number for indexing fields of hashtable.
@@ -18,7 +18,7 @@ namespace _2._3.hash
             int sum = 0;
             for (int i = 0; i < newElement; ++i)
             {
-                sum = sum + i * i * i * (sum + 1);
+                sum = sum + i * i * i;
             }
             sum = sum % 100;
             return sum;

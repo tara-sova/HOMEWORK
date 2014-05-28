@@ -5,7 +5,7 @@ using _7._2.multiplicity;
 namespace MultiplicityTest
 {
     [TestClass]
-    public class UnitTest1
+    public class TestOnMultiplicity
     {
         [TestMethod]
         public void AddIntElementTest()

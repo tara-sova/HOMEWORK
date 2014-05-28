@@ -3,6 +3,9 @@ using StackNamespace;
 
 namespace _2._4.calculator
 {
+    /// <summary>
+    /// Stuff that calculate numbers.
+    /// </summary>
     public class Calculator
     {
         private MainStack Stack;
@@ -12,6 +15,10 @@ namespace _2._4.calculator
             this.Stack = stack;
         }
 
+        /// <summary>
+        /// Calculate sum.
+        /// </summary>
+        /// <returns></returns>
         public int Sum()
         {
             int firstNumber = Stack.Pop();
@@ -20,6 +27,10 @@ namespace _2._4.calculator
             return sum;
         }
 
+        /// <summary>
+        /// Calculate difference.
+        /// </summary>
+        /// <returns></returns>
         public int Difference()
         {
             int firstNumber = Stack.Pop();
@@ -28,6 +39,10 @@ namespace _2._4.calculator
             return difference;
         }
 
+        /// <summary>
+        /// Difference quotient.
+        /// </summary>
+        /// <returns></returns>
         public int Quotient()
         {
             int firstNumber = Stack.Pop();
@@ -36,6 +51,10 @@ namespace _2._4.calculator
             return quotient;
         }
 
+        /// <summary>
+        /// Quotient product.
+        /// </summary>
+        /// <returns></returns>
         public int Product()
         {
             int firstNumber = Stack.Pop();

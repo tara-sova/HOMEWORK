@@ -23,14 +23,6 @@ namespace _2._4.calculator
             stack.Push(5);
             stack.Push(6);
 
-            //System.Console.WriteLine("{0}  ", arrayStack.Pop());
-            //System.Console.WriteLine("{0}  ", arrayStack.Pop());
-            //System.Console.WriteLine("{0}  ", arrayStack.Pop());
-
-            //System.Console.WriteLine("{0}  ", stack.Pop());
-            //System.Console.WriteLine("{0}  ", stack.Pop());
-            //System.Console.WriteLine("{0}  ", stack.Pop());
-
         }
 
     }

@@ -5,7 +5,7 @@ using _7._1.stack_list;
 namespace EnumeratorTest
 {
     [TestClass]
-    public class UnitTest1
+    public class TestOnEnumerator
     {
         [TestInitialize]
         public void Intialize()

@@ -57,12 +57,12 @@ namespace i_will_never_do_this
         {
             if (element == "X")
             {
-                label1.Content = "You win";
+                this.label1.Content = "You win";
                 opportunityToPlay = true;
             }
             if (element == "O")
             {
-                label1.Content = "You lose";
+                this.label1.Content = "You lose";
                 opportunityToPlay = true;
             }
         }
@@ -76,7 +76,8 @@ namespace i_will_never_do_this
             {
                 if ((array[i].Content.ToString() == array[i + 1].Content.ToString()) && (array[i + 1].Content.ToString() == array[i + 2].Content.ToString()))
                 {
-                    Matching(array[i].Content.ToString());
+                    string result = array[i].Content.ToString();
+                    Matching(result);
                     return;
                 }
             }
@@ -160,7 +161,7 @@ namespace i_will_never_do_this
 
             WinCheck();
 
-            if (text != label1.Content.ToString())
+            if (text != this.label1.Content.ToString())
             {
                 return;
             }

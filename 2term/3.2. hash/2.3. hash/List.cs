@@ -75,6 +75,27 @@
         }
 
         /// <summary>
+        /// Get first element's value.
+        /// </summary>
+        /// <returns></returns>
+        public int GetHead()
+        {
+            return head.Value;
+        }
+
+        /// <summary>
+        /// Remove head pointer.
+        /// </summary>
+        /// <param name="value">Value to be pushed.</param>
+        public void DeleteHead()
+        {
+            if (head != null)
+            {
+                head = head.Next;
+            }
+        }
+
+        /// <summary>
         /// Push value to a List.
         /// </summary>
         /// <param name="value">Value to be pushed.</param>

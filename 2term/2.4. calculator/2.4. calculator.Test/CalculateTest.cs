@@ -6,7 +6,7 @@ using StackNamespace;
 namespace _2._4.calculator.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class CalculateTest
     {
         [TestInitialize]
         public void Initialize()

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace _5._4.cursor
 {
+    /// <summary>
+    /// Class for processing of infinite loop.
+    /// </summary>
     public class EventLoop
     {
         public event EventHandler<EventArgs> LeftHandler = (sender, args) => { };

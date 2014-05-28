@@ -5,7 +5,7 @@ using _7._1.stack_list;
 namespace StackTest
 {
     [TestClass]
-    public class UnitTest1
+    public class TestOnStack
     {
         [TestInitialize]
         public void Initialize()
