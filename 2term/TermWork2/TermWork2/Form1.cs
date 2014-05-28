@@ -19,11 +19,6 @@ namespace TermWork2
             InitializeComponent();
         }
 
-       /// <summary>
-       /// Create a new timer.
-       /// </summary>
-        private Timer tmrShow = new Timer();
-
         /// <summary>
         /// Programm's behavior after click on button2.
         /// </summary>
@@ -42,7 +37,6 @@ namespace TermWork2
         private void OnButton1Click(object sender, EventArgs e)
         {
             this.timer1.Start();
-            tmrShow.Tick += Timer1Tick;
         }
 
         /// <summary>
