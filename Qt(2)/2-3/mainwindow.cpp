@@ -55,4 +55,5 @@ void MainWindow::goNext()
 void MainWindow::F5()
 {
     ui->webView->reload();
+    ui->webView->show();
 }
