@@ -23,5 +23,5 @@ SOURCES += main.cpp \
 HEADERS += \
     stack.h \
     arraystack.h \
-    interface.h \
-    calculator.h
+    calculator.h \
+    interface

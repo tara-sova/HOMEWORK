@@ -9,7 +9,7 @@ public:
     ~Stack();
     void push(int value) override;
     int pop() override;
-    bool isEmpty();
+    bool isEmpty() override;
 
 private:
     class StackElement

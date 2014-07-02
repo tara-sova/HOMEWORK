@@ -9,6 +9,7 @@ public:
     ~ArrayStack();
     void push(int value) override;
     int pop() override;
+    bool isEmpty() override;
 
 private:
     int array[100];

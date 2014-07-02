@@ -22,3 +22,11 @@ int ArrayStack::pop()
                 --LastElement;
                 return value;
             }
+
+bool ArrayStack::isEmpty()
+            {
+                if (LastElement == -1)
+                {
+                    return true;
+                }
+            }
