@@ -11,26 +11,34 @@
 #include <QPoint>
 
 
-class shell : public QGraphicsItem
+class Shell : public QGraphicsItem
 {
 public:
-    shell(int corner);
+    Shell(int corner);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
     void shellMovesDown();
     void shellLetsOut();
     bool returnCondition();
     void changeCondition(bool change);
-    void changeVy();
+
+    void decreaseCorner(int corner);
+    void increaseCorner(int corner);
+
+    bool returnCheck();
+
+    QPointF mVInitialize(int speed);
+
 
 private:
-    int position = 0;
-    double angle = 90;
-    int x = 55;
-    int y = 390;
-    int condition = false;
-    QPoint V;
-    QRectF *rect = new QRectF(10, 21, 840, 440);
+    int mPosition = 0;
+    int mCondition = false;
+    QPointF mV;
+    QPointF mG;
+    QPointF mTransformVector = {0, -90};
+    QRectF *mRect = new QRectF(10, 21, 840, 440);
+    bool mCheck = false;
+    QRectF *mEllipseRect = new QRectF(750, 50, 60, 60);
 };
 
 #endif // SHELL_H

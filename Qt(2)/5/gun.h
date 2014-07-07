@@ -5,17 +5,18 @@
 #include <QGraphicsItem>
 #include <QWidget>
 
-class gun : public QGraphicsItem
+class Gun : public QGraphicsItem
 {
 public:
-    gun();
+    Gun();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
-    void BodyMoveDown();
+    void bodyMoveDown();
+    void bodyMoveUp();
     int getCorner();
 
 private:
-    int corner = 180;
+    int mCorner = 180;
 };
 
 #endif // GUN_H

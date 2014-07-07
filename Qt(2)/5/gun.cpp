@@ -6,33 +6,34 @@
 #include <QWidget>
 
 
-gun::gun()
-{
-}
+Gun::Gun(){}
 
-QRectF gun::boundingRect() const
+QRectF Gun::boundingRect() const
 {
     return QRectF(11, 22, 82, 50);
 }
 
-void gun::BodyMoveDown()
+void Gun::bodyMoveDown()
 {
-    corner = corner + 5;
+    mCorner = mCorner + 5;
 }
 
-void gun::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Gun::bodyMoveUp()
+{
+    mCorner = mCorner - 5;
+}
+
+void Gun::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawEllipse(11, 360, 100, 100);
-
-    painter->setTransform(QTransform().translate(55, 390).rotate(corner).translate(-55, -390));
-
+    painter->setTransform(QTransform().translate(55, 390).rotate(mCorner).translate(-55, -390));
     painter->drawRect(55, 390, 10, 100);
 
 }
 
-int gun::getCorner()
+int Gun::getCorner()
 {
-    return this->corner;
+    return mCorner;
 }
 
 

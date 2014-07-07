@@ -7,12 +7,15 @@
 #include "gun.h"
 #include "shell.h"
 
-class target : public QGraphicsItem
+class Target : public QGraphicsItem
 {
 public:
-    target();
+    Target();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
+    void changeTakeCheck();
+private:
+    bool mTakeCheck = false;
 };
 
 #endif // TARGET_H

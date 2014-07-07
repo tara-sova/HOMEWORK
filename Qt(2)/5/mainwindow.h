@@ -9,9 +9,9 @@ namespace Ui {
 class MainWindow;
 }
 
-class gun;
-class shell;
-class target;
+class Gun;
+class Shell;
+class Target;
 
 class MainWindow : public QMainWindow
 {
@@ -20,20 +20,24 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void winCheck();
 
 private:
-    Ui::MainWindow *ui;
-    QGraphicsScene *scene;
-    gun *ourGun;
-    shell *ourShell;
-    target *ourTarget;
-    QTimer *timer;
-    bool flag = false;
+    Ui::MainWindow *mUi;
+    QGraphicsScene *mScene;
+    Gun *mOurGun;
+    Shell *mOurShell;
+    Target *mOurTarget;
+    QTimer *mTimer;
 
 public slots:
-    void MovementOfBody();
-    void MovementOfShell();
-    void MakesShellMove();
+    void bodyDown();
+    void bodyUp();
+    void descriptionOfShot();
+    void shot();
+    void goSlow();
+    void goMedium();
+    void goQuick();
 
 };
 

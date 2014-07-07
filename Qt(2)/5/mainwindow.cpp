@@ -12,58 +12,94 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    mUi(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    mUi->setupUi(this);
 
-    ourGun = new gun();
-    scene = new QGraphicsScene();
+    mOurGun = new Gun();
+    mScene = new QGraphicsScene();
 
-    ui->graphicsView->setScene(scene);
+    mUi->graphicsView->setScene(mScene);
 
-    ui->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    scene->addItem(ourGun);
+    mUi->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    mScene->addItem(mOurGun);
 
-    ourShell = new shell(ourGun->getCorner());
-    scene->addItem(ourShell);
+    mTimer = new QTimer(this);
 
-    connect(ui->pushButton, SIGNAL(clicked()),
-            this, SLOT(MovementOfBody()));
-    connect(ui->pushButton_2, SIGNAL(clicked()),
-            this, SLOT(MovementOfShell()));
+    connect(mUi->pushButton, SIGNAL(clicked()),
+            this, SLOT(bodyDown()));
+    connect(mUi->pushButton_2, SIGNAL(clicked()),
+            this, SLOT(descriptionOfShot()));
+    connect(mUi->pushButton_3, SIGNAL(clicked()),
+            this, SLOT(bodyUp()));
 
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(MakesShellMove()));
+    connect(mUi->radioButton, SIGNAL(clicked()),
+            this, SLOT(goSlow()));
+    connect(mUi->radioButton_2, SIGNAL(clicked()),
+            this, SLOT(goMedium()));
+    connect(mUi->radioButton_3, SIGNAL(clicked()),
+            this, SLOT(goQuick()));
 
-    ourTarget = new target();
-    scene->addItem(ourTarget);
+    connect(mTimer, SIGNAL(timeout()), this, SLOT(shot()));
+
+    mOurTarget = new Target();
+    mScene->addItem(mOurTarget);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete mUi;
 }
 
-void MainWindow::MovementOfBody()
+void MainWindow::bodyDown()
 {
-    ourGun->BodyMoveDown();
-    ourShell->shellMovesDown();
-    scene->invalidate();
+    mOurGun->bodyMoveDown();
+    mScene->invalidate();
 }
 
-void MainWindow::MovementOfShell()
+void MainWindow::bodyUp()
 {
-    this->timer->start(100);
+    mOurGun->bodyMoveUp();
+    mScene->invalidate();
 }
 
-void MainWindow::MakesShellMove()
+void MainWindow::descriptionOfShot()
 {
-    ourShell->changeVy();
-    ourShell->shellLetsOut();
-    scene->invalidate();
-    if (ourShell->returnCondition())
+    mOurShell = new Shell(mOurGun->getCorner());
+    mScene->addItem(mOurShell);
+    this->mTimer->start(50);
+    mScene->invalidate();
+}
+
+void MainWindow::shot()
+{
+    mOurShell->shellLetsOut();
+    winCheck();
+    mScene->invalidate();
+}
+
+void MainWindow::winCheck()
+{
+    if (mOurShell->returnCheck())
     {
-        timer->stop();
-        ourShell->changeCondition(flag);
+        mOurTarget->changeTakeCheck();
+        mScene->invalidate();
     }
 }
+
+void MainWindow::goSlow()
+{
+    mOurShell->mVInitialize(15);
+}
+
+void MainWindow::goMedium()
+{
+    mOurShell->mVInitialize(35);
+}
+
+void MainWindow::goQuick()
+{
+    mOurShell->mVInitialize(60);
+}
+
+

@@ -9,83 +9,87 @@
 #include <qmath.h>
 #include <QDebug>
 
-shell::shell(int corner)
+Shell::Shell(int corner)
 {
-    position = corner;
-    V.setX(V.x() + 1);
-    //p += QPoint(1, 0);
-    //p.rx()++;
+    mPosition = corner - 180;
+    mV;
+    mG.setY(mG.y() + 1);
+
+    QTransform transformMTransformVector;
+    transformMTransformVector.translate(55, 390);
+    transformMTransformVector.rotate(mPosition + 2);
+    mTransformVector = transformMTransformVector.map(mTransformVector);
+
+    QTransform transformMV;
+    transformMV.rotate(mPosition - 90);
+    mV = transformMV.map(mV);
+
+    qDebug() << mV;
 }
 
-QRectF shell::boundingRect() const
+QRectF Shell::boundingRect() const
 {
     return QRectF(11, 22, 82, 50);
 }
 
-void shell::shellMovesDown()
+void Shell::shellMovesDown()
 {
-    position = position + 5;
-    angle = angle - 5;
+    mPosition = mPosition + 5;
 }
 
-void shell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Shell::decreaseCorner(int corner)
+{
+    mPosition = mPosition - 180;
+}
+
+void Shell::increaseCorner(int corner)
+{
+    mPosition = 180 - mPosition;
+}
+
+void Shell::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->drawRect(10, 21, 840, 439);
-
-    QTransform transform;
-    transform.rotate(position);
-    V = transform.map(V);
-
-    painter->setTransform(QTransform().translate(x, y).rotate(position).translate(-x, -y));
-    painter->drawEllipse(55, 480, 10, 10);
-    /*
-    painter->setTransform(QTransform().translate(0, 0).rotate(position).translate(0, 0));
-    V;
-    */
+    painter->drawEllipse(mTransformVector.x(), mTransformVector.y(), 10, 10);
 }
 
-void shell::shellLetsOut()
+void Shell::shellLetsOut()
 {
-    qreal x1 = x;
-    qreal y1 = y;
+    mV += mG;
 
-    if((rect->contains(x1, y1)) && (!condition))
-    {
-        /*
-        int u = 2;
-        int t = 4;
-        int g = 10;
-        double newAngle = angle * 3.14 / 180;
+    if((mRect->contains(mTransformVector.x(), mTransformVector.y())) && (!mCondition)){
+        mTransformVector.setX(mTransformVector.x() + mV.x());
+        mTransformVector.setY(mTransformVector.y() + mV.y());
 
-        qDebug() << qSin(newAngle) << newAngle;
-        t = 2 * u * sin(newAngle) / g;
-
-        x = u * t * cos( - newAngle);
-        y = u * t * sin( - newAngle) - 0,5 * g * t * t;
-        */
-        x = x + x * V.rx();
-        y = y + y * V.ry();
-        V.ry() += 10;
+        if (mEllipseRect->contains(mTransformVector.x(), mTransformVector.y())){
+            mCheck = true;
+        }
     }
     else
     {
-        x = 55;
-        y = 390;
-        condition = true;
+        mTransformVector = {0, -90};
+        mCondition = true;
     }
 }
 
-void shell::changeCondition(bool change)
+void Shell::changeCondition(bool change)
 {
-    condition = change;
+    mCondition = change;
 }
 
-bool shell::returnCondition()
+bool Shell::returnCondition()
 {
-    return condition;
+    return mCondition;
 }
 
-void shell::changeVy()
+bool Shell::returnCheck()
 {
-    V.ry()= 0;
+    return mCheck;
 }
+
+QPointF Shell::mVInitialize(int speed)
+{
+    mV = {speed, mV.y()};
+    //mV.setX(speed);
+}
+
