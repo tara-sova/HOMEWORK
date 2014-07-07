@@ -10,6 +10,21 @@
     <height>585</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>976</width>
+    <height>585</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>976</width>
+    <height>585</height>
+   </size>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -72,8 +87,14 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>slow</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QRadioButton" name="radioButton_2">
@@ -100,6 +121,19 @@
     </property>
     <property name="text">
      <string>quick</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>480</y>
+      <width>53</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>

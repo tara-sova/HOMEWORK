@@ -1,21 +1,28 @@
-#ifndef TARGET_H
-#define TARGET_H
+#pragma once
+
 #include "mainwindow.h"
-#include <QGraphicsScene>
-#include <QGraphicsItem>
-#include <QWidget>
 #include "gun.h"
 #include "shell.h"
 
+#include <QGraphicsScene>
+#include <QGraphicsItem>
+#include <QWidget>
+
+/// Class that describe our target.
 class Target : public QGraphicsItem
 {
 public:
-    Target();
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    QRectF boundingRect() const;
-    void changeTakeCheck();
-private:
-    bool mTakeCheck = false;
-};
+	Target();
 
-#endif // TARGET_H
+	/// Paint target.
+	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
+	/// Rectangle for shell's painting.
+	QRectF boundingRect() const override;
+
+	/// Change meaning of a matching.
+	void changeTakeCheck();
+
+private:
+	bool mTakeCheck = false;
+};
