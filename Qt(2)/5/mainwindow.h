@@ -1,20 +1,20 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QGraphicsScene>
-#include <QGraphicsItem>
+#include <QtWidgets/QGraphicsScene>
+#include <QtWidgets/QGraphicsItem>
+#include <QtWidgets/QGraphicsView>
+#include <QtCore/QTimer>
+#include <QtWidgets/QWidget>
 
 namespace Ui {
 class MainWindow;
 }
 
-/// Class that describe our gun.
 class Gun;
 
-/// Class that describe our shell.
 class Shell;
 
-/// Class that describe our target.
 class Target;
 
 class MainWindow : public QMainWindow
@@ -25,19 +25,19 @@ public:
 	explicit MainWindow(QWidget *parent = 0);
 	~MainWindow();
 
+private:
 	/// Check victory.
 	void winCheck();
 
-private:
-	Ui::MainWindow *mUi;
-	QGraphicsScene *mScene;
-	Gun *mOurGun;
-	Shell *mOurShell;
-	Target *mOurTarget;
-	QTimer *mTimer;
+	Ui::MainWindow *mUi; // Has ownership.
+	QGraphicsScene *mScene = nullptr; // Has ownership.
+	Gun *mOurGun = nullptr; // Scene deletes this object.
+	Shell *mOurShell = nullptr; // Scene deletes this object.
+	Target *mOurTarget = nullptr; // Scene deletes this object.
+	QTimer *mTimer = nullptr; // Has ownership.
 	qreal mSpeed;
 
-public slots:
+private slots:
 	/// Move body down.
 	void bodyDown();
 
@@ -45,7 +45,7 @@ public slots:
 	void bodyUp();
 
 	/// Describe processes that should happen in shot-time.
-	void descriptionOfShot();
+	void describeShot();
 
 	/// Description of shot.
 	void shot();

@@ -1,20 +1,21 @@
 #pragma once
 
+#include <QtWidgets/QGraphicsScene>
+#include <QtWidgets/QGraphicsItem>
+#include <QtWidgets/QWidget>
+#include <QtCore/QTimer>
+#include <QtCore/QPoint>
+#include <qmath.h>
+#include <QtWidgets/QGraphicsView>
+
 #include "mainwindow.h"
 #include "gun.h"
-
-#include <QGraphicsScene>
-#include <QGraphicsItem>
-#include <QWidget>
-#include <QTimer>
-#include <QrectF>
-#include <qpoint.h>
-#include <QPoint>
 
 /// Class that describe our shell.
 class Shell : public QGraphicsItem
 {
 public:
+	///Create our shell with an initial settings like corner of shot and start-speed.
 	Shell(int corner, qreal speed);
 
 	/// Paint shell.
@@ -45,7 +46,7 @@ private:
 	int mPosition = 0;
 	int mCondition = false;
 	QPointF mV = {31, 0};
-	QPointF mG;
+	QPointF const mG = {0, 1};
 	QPointF mTransformVector = {0, -90};
 	QRectF *mRect = new QRectF(10, 21, 840, 440);
 	bool mCheck = false;

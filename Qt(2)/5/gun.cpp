@@ -1,13 +1,10 @@
 #include "gun.h"
 
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QGraphicsItem>
-#include <QWidget>
-
 #include "mainwindow.h"
 
-Gun::Gun(){}
+Gun::Gun()
+{
+}
 
 QRectF Gun::boundingRect() const
 {

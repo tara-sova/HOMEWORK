@@ -1,12 +1,14 @@
 #pragma once
 
+#include <QtWidgets/QGraphicsScene>
+#include <QtWidgets/QGraphicsItem>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QGraphicsView>
+
 #include "mainwindow.h"
 #include "gun.h"
 #include "shell.h"
-
-#include <QGraphicsScene>
-#include <QGraphicsItem>
-#include <QWidget>
 
 /// Class that describe our target.
 class Target : public QGraphicsItem

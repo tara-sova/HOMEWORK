@@ -1,12 +1,5 @@
 #include "shell.h"
 
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QGraphicsItem>
-#include <QWidget>
-#include <qmath.h>
-#include <QDebug>
-
 #include "math.h"
 #include "gun.h"
 #include "mainwindow.h"
@@ -14,7 +7,6 @@
 Shell::Shell(int corner, qreal speed)
 {
 	mPosition = corner - 180;
-	mG.setY(mG.y() + 1);
 
 	QTransform transformMTransformVector;
 	transformMTransformVector.translate(55, 390);

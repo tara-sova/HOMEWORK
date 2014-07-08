@@ -1,19 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QGraphicsItem>
-#include <QWidget>
-#include <QTimer>
-
 #include "gun.h"
 #include "shell.h"
 #include "target.h"
 
-MainWindow::MainWindow(QWidget *parent) :
-	QMainWindow(parent),
-	mUi(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent)
+	: QMainWindow(parent)
+	, mUi(new Ui::MainWindow)
 {
 	mUi->setupUi(this);
 
@@ -27,19 +21,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	mTimer = new QTimer(this);
 
-	connect(mUi->pushButton, SIGNAL(clicked())
-			,this, SLOT(bodyDown()));
-	connect(mUi->pushButton_2, SIGNAL(clicked())
-			,this, SLOT(descriptionOfShot()));
-	connect(mUi->pushButton_3, SIGNAL(clicked())
-			,this, SLOT(bodyUp()));
+	connect(mUi->pushButton, &QPushButton::clicked, this, &MainWindow::bodyDown);
+	connect(mUi->pushButton_2, &QPushButton::clicked, this, &MainWindow::describeShot);
+	connect(mUi->pushButton_3, &QPushButton::clicked, this, &MainWindow::bodyUp);
 
-	connect(mUi->radioButton, SIGNAL(clicked()),
-			this, SLOT(goSlow()));
-	connect(mUi->radioButton_2, SIGNAL(clicked()),
-			this, SLOT(goMedium()));
-	connect(mUi->radioButton_3, SIGNAL(clicked()),
-			this, SLOT(goQuick()));
+	connect(mUi->radioButton, &QRadioButton::clicked, this, &MainWindow::goSlow);
+	connect(mUi->radioButton_2, &QRadioButton::clicked, this, &MainWindow::goMedium);
+	connect(mUi->radioButton_3, &QRadioButton::clicked, this, &MainWindow::goQuick);
 
 	connect(mTimer, SIGNAL(timeout()), this, SLOT(shot()));
 
@@ -47,6 +35,13 @@ MainWindow::MainWindow(QWidget *parent) :
 	mScene->addItem(mOurTarget);
 
 	mUi->label->setVisible(false);
+}
+
+MainWindow::~MainWindow()
+{
+	delete mTimer;
+	delete mScene;
+	delete mUi;
 }
 
 void MainWindow::bodyDown()
@@ -61,9 +56,10 @@ void MainWindow::bodyUp()
 	mScene->invalidate();
 }
 
-void MainWindow::descriptionOfShot()
+void MainWindow::describeShot()
 {
 	mUi->label->setVisible(false);
+	delete mOurShell;
 	mOurShell = new Shell(mOurGun->getCorner(), mSpeed);
 	mScene->addItem(mOurShell);
 	this->mTimer->start(50);
@@ -101,12 +97,5 @@ void MainWindow::goMedium()
 void MainWindow::goQuick()
 {
 	mSpeed = 40;
-}
-
-MainWindow::~MainWindow()
-{
-	delete mTimer;
-	delete mScene;
-	delete mUi;
 }
 

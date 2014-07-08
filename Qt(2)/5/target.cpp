@@ -1,17 +1,12 @@
 #include "target.h"
 
-#include <QGraphicsScene>
-#include <QGraphicsItem>
-#include <QWidget>
-#include <QTimer>
-#include <QrectF>
-#include <QGraphicsView>
-
 #include "gun.h"
 #include "mainwindow.h"
 #include "shell.h"
 
-Target::Target(){}
+Target::Target()
+{
+}
 
 QRectF Target::boundingRect() const
 {

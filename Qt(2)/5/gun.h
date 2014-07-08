@@ -1,10 +1,11 @@
 #pragma once
 
-#include "mainwindow.h"
+#include <QtWidgets/QGraphicsScene>
+#include <QtWidgets/QGraphicsItem>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QGraphicsView>
 
-#include <QGraphicsScene>
-#include <QGraphicsItem>
-#include <QWidget>
+#include "mainwindow.h"
 
 /// Class that describe our gun.
 class Gun : public QGraphicsItem
@@ -12,10 +13,8 @@ class Gun : public QGraphicsItem
 public:
 	Gun();
 
-	/// Paint gun.
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-	/// Rectangle for gun's painting.
 	QRectF boundingRect() const override;
 
 	/// Move gun's body down.
