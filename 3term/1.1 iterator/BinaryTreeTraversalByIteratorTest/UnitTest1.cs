@@ -5,7 +5,7 @@ using _1._1_iterator;
 namespace BinaryTreeTraversalByIteratorTest
 {
     [TestClass]
-    public class UnitTest1
+    public class TestForIterator
     {
         [TestMethod]
         public void ExistenceOfIntTreeTest()

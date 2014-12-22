@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace _1._2.local_network
 {
     [TestClass]
-    public class UnitTest1
+    public class TestForLocalNetwork
     {
         private Random index = new Random();
 
