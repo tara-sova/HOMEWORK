@@ -106,7 +106,7 @@ namespace HashNamespace
         /// <summary>
         /// Change hashfunction.
         /// </summary>
-        public void ChangeHashfunction(HashFunction hashfunction)
+        public void ChangeHashfunction(HashFunction hashFunction)
         {
             List newList = new List();
             for (int i = 0; i < 100; ++i)
@@ -119,7 +119,7 @@ namespace HashNamespace
                 }
             }
 
-            this.HashFunction = hashfunction;
+            this.HashFunction = hashFunction;
             while (!newList.IsEmpty())
             {
                 int value = newList.GetHead();

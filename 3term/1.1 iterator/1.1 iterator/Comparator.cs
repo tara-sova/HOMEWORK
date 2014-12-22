@@ -18,6 +18,6 @@ namespace _1._1_iterator
         /// <param name="value"></param>
         /// <param name="temp"></param>
         /// <returns></returns>
-        int Compair(ElementType value, ElementType temp);
+        int Compare(ElementType value, ElementType temp);
     }
 }

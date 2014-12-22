@@ -24,8 +24,6 @@ namespace _5._1.Map
 
             int temp = Fo.Fold(list5, 1, (acc, elem) => acc = acc * elem.GettingFirstValue());
             System.Console.WriteLine(temp);
-
-
         }
     }
 }

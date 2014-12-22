@@ -17,7 +17,7 @@ namespace _1._1_iterator
         /// <param name="value"></param>
         /// <param name="temp"></param>
         /// <returns></returns>
-        public int Compair(int value, int temp)
+        public int Compare(int value, int temp)
         {
             if (value < temp)
             {

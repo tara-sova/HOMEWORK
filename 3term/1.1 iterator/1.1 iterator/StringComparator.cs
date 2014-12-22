@@ -18,7 +18,7 @@ namespace _1._1_iterator
         /// <param name="value"></param>
         /// <param name="temp"></param>
         /// <returns></returns>
-        public int Compair(string value, string temp)
+        public int Compare(string value, string temp)
         {
             int i = 0;
             while (i != value.Length && i != temp.Length)

@@ -20,8 +20,9 @@ namespace _1._2.local_network
         /// <summary>
         /// Start work.
         /// </summary>
-        public StuffClass()
+        public StuffClass(string file)
         {
+            reader = new StreamReader(file);
             this.Start();
         }
 
@@ -54,7 +55,7 @@ namespace _1._2.local_network
                 name = reader.ReadLine();
                 systemType = reader.ReadLine();
 
-                computers[i].SetHealthCondition(isInfected); ;
+                computers[i].SetHealthCondition(isInfected);
                 computers[i].SetOSType(computers[i].InfectionIndex(systemType));
                 computers[i].SetName(name);
             }

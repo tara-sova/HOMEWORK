@@ -11,7 +11,7 @@ namespace _1._2.local_network
     /// </summary>
     public class Computer
     {
-        private bool IsInfected;
+        private bool isInfected;
         private int OSType;
         private string Name;
 
@@ -20,7 +20,7 @@ namespace _1._2.local_network
         /// </summary>
         public Computer()
         {
-            this.IsInfected = false;
+            this.isInfected = false;
             this.Name = "";
             this.OSType = 0;
         }
@@ -47,7 +47,7 @@ namespace _1._2.local_network
         {
             if (this.OSType < extraIndex)
             {
-                this.IsInfected = true;
+                this.isInfected = true;
             }
         }
 
@@ -57,7 +57,7 @@ namespace _1._2.local_network
         /// <returns></returns>
         public bool GetHealthCondition()
         {
-            return this.IsInfected;
+            return this.isInfected;
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace _1._2.local_network
         /// <param name="condition"></param>
         public void SetHealthCondition(bool condition)
         {
-            this.IsInfected = condition;
+            this.isInfected = condition;
         }
 
         /// <summary>

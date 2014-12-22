@@ -264,6 +264,21 @@
         }
 
         /// <summary>
+        /// Copy elements from the other list.
+        /// </summary>
+        /// <param name="list1"></param>
+        public void CopyList(List list1)
+        {
+            int counter = list1.CounterOfElements();
+            ListElement tempElement = list1.head;
+            for (int i = 0; i < counter; ++i)
+            {
+                this.InsertToTheEnd(tempElement.Value);
+                tempElement = tempElement.Next;
+            }
+        }
+
+        /// <summary>
         /// Returns number of list's element.
         /// </summary>
         /// <returns></returns>

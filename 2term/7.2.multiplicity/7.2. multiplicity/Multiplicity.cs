@@ -174,6 +174,8 @@ namespace _7._2.multiplicity
         /// <param name="Second"></param>
         public void Intersection(Multiplicity<ElementType> First, Multiplicity<ElementType> Second)
         {
+            this.head = null; 
+
             if ((First.IsEmpty()) || (Second.IsEmpty()))
             {
                 this.head = null;
@@ -205,6 +207,8 @@ namespace _7._2.multiplicity
         /// <param name="Second"></param>
         public void Union(Multiplicity<ElementType> First, Multiplicity<ElementType> Second)
         {
+            this.head = null;
+
             MultiplicityElement tempFirst = First.head;
             MultiplicityElement tempSecond = Second.head;
 

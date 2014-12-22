@@ -12,6 +12,7 @@ namespace _1._2.local_network
     public class Behavior
     {
         private Computer[] computers;
+        bool[] infectedComputers;
 
         /// <summary>
         /// Change a system condition because of thread of infection.
@@ -19,10 +20,11 @@ namespace _1._2.local_network
         /// <param name="matrix"></param>
         /// <param name="computersFromStuff"></param>
         /// <param name="extraIndex"></param>
-        public Behavior(int[,] matrix, Computer[] computersFromStuff, int extraIndex)
+        public Behavior(int[,] matrix, Computer[] computersFromStuff)
         {
             computers = computersFromStuff;
-            this.LetInfect(matrix, extraIndex);
+            infectedComputers = new bool[matrix.GetLength(0)];
+            FillingOfArray(infectedComputers);
         }
 
         /// <summary>
@@ -34,10 +36,7 @@ namespace _1._2.local_network
         {
             for (int i = 0; i < infectedComputers.GetLength(0); ++i)
             {
-                if (computers[i].GetHealthCondition())
-                    infectedComputers[i] = true;
-                else
-                    infectedComputers[i] = false;
+                infectedComputers[i] = computers[i].GetHealthCondition();
             }
             return infectedComputers;
         }
@@ -48,11 +47,11 @@ namespace _1._2.local_network
         /// <param name="infectedComputers"></param>
         /// <param name="matrix"></param>
         /// <param name="extraIndex"></param>
-        void InternalInfection(bool[] infectedComputers, int[,] matrix, int extraIndex)
+        public void InternalInfection(bool[] infectedComputers, int[,] matrix, int extraIndex)
         {
             infectedComputers = this.FillingOfArray(infectedComputers);
 
-            for (int i = 0; i < infectedComputers.GetLength(0); ++i)
+            for (int i = 0; i < infectedComputers.Length; ++i)
             {
                 if (infectedComputers[i])
                 {
@@ -69,18 +68,12 @@ namespace _1._2.local_network
          }
 
         /// <summary>
-        /// Method for infection.
+        /// Get array of coputers that are infected.
         /// </summary>
-        /// <param name="matrix"></param>
-        /// <param name="extraIndex"></param>
-        public void LetInfect(int[,] matrix, int extraIndex)
+        /// <returns></returns>
+        public bool[] GetArray()
         {
-            bool[] infectedComputers = new bool[matrix.GetLength(0)];
-
-            for (int i = 0; i < 5; ++i)
-            {
-                InternalInfection(infectedComputers, matrix, extraIndex);
-            }
+            return infectedComputers;
         }
 
         /// <summary>

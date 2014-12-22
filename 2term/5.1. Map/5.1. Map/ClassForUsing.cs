@@ -69,7 +69,8 @@ namespace _5._1.Map
         public int Fold(List list, int startElement, Func<int, List, int> changeByList)
         {
             List newList = new List();
-            newList = list;
+
+            newList.CopyList(list);
 
             var tempElement = newList.GettingFirst();
 

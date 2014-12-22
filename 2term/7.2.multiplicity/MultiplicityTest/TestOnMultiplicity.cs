@@ -45,7 +45,9 @@ namespace MultiplicityTest
             Multiplicity<int> multiplicity1 = new Multiplicity<int>();
             multiplicity1.Insert(1);
             Multiplicity<int> multiplicity2 = new Multiplicity<int>();
+            multiplicity2.Insert(2);
             Multiplicity<int> result = new Multiplicity<int>();
+            result.Insert(1234);
             result.Intersection(multiplicity1, multiplicity2);
             Assert.IsTrue(result.IsEmpty());
         }

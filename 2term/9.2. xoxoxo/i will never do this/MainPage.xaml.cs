@@ -14,8 +14,8 @@ namespace i_will_never_do_this
 {
     public partial class MainPage : UserControl
     {
-        Button[] array = new Button[9];
-        bool[] checkArray = new bool[9];
+        private Button[] array = new Button[9];
+        private bool[] checkArray = new bool[9];
 
         private bool opportunityToPlay = false;
 
@@ -43,7 +43,6 @@ namespace i_will_never_do_this
             }
 
             label1.Content = "Place for result";
-            label2.Content = "label2";
             label2.Content = numberOfFillingCells.ToString();
         }
 
