@@ -5,5 +5,5 @@
     else div n (lessN - 1)
 
 let seqInfinite = Seq.initInfinite (fun index ->
-     div index (index - 1) ) |> Seq.distinct |> Seq.skip 1 |> Seq.take 10
+     div index (index - 1) ) |> Seq.distinct |> Seq.skip 1
 printfn "%A" seqInfinite
