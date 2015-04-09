@@ -45,5 +45,5 @@ let test (exp : Expression) =
     let derivativeExp = Derivative(exp)
     recExp(derivativeExp)
 
-let result1 = test (Add( Mul(X, Const(3)), Const(6) )) // input: (3*x) + 6,  result: 3
-let result2 = test (Div(Const(5), X)) // input: (5/x),  result: ((-5)/(x*x))
+let result1 = test (Add( Mul(X, Const(3)), Const(6) )) // input: (3 * x) + 6,  result: 3
+let result2 = test (Div(Const(5), X)) // input: (5 / x),  result: ((-5) / (x * x))
