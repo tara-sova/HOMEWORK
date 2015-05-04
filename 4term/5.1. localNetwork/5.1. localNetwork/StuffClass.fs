@@ -9,7 +9,7 @@ open Microsoft.FSharp.Collections
 open Computer
 
 /// Class which provide interaction of system with input data.
-type StuffClass (info : string list, matrixList : string list) = 
+type StuffClass (info : (string * string * string) array, matrixArr : int [] []) = 
      let mutable compList : Computer list = []
      let mutable size : int = 5
      let mutable stuffMatrix = Array2D.create size size 0
@@ -17,16 +17,19 @@ type StuffClass (info : string list, matrixList : string list) =
 
 /// Start of infection process.
      member s.Start() = 
-         size <- int info.Head
+         //size <- int info.Head
+         size <- info.Length
  
-         for i in 1 .. 3 .. (size * 3) do
+         //for i in 1 .. 3 .. (size * 3) do
+         for i = 0 to 2 do
              let comp = new Computer()
-             let sign : string = info.[i]
+             //let sign : string = info.[i]
+             let (fst, snd, trd) = info.[i]
+             let sign : string = fst
              let isInfected = 
-                 if (sign = "+") then true
-                 else false
-             let name = info.[i + 1]
-             let systemType = info.[i + 2]
+                 sign = "+"
+             let name = snd
+             let systemType = trd
               
              comp.SetHealthCondition(isInfected)
              comp.SetOSType(comp.InfectionIndex(systemType))
@@ -38,7 +41,7 @@ type StuffClass (info : string list, matrixList : string list) =
          stuffMatrix <- Array2D.create size size 0
          for i = 0 to (size - 1) do
              for j = 0 to (size - 1) do
-                 stuffMatrix.[i, j] <- (int (matrixList.[i].Chars(j).ToString()) )
+                 stuffMatrix.[i, j] <- matrixArr.[i].[j]
 
 /// Get computers's list.
      member s.GetArrayOfComputers() = compList

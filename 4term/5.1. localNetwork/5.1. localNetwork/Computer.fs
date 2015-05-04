@@ -20,9 +20,7 @@ type Computer() =
 /// Infect or not by special index.
      member c.TryToInfect(extraIndex : int) = 
          if (osType < extraIndex) then
-            isInfected <- true
-            ()
-         else ()
+            isInfected <- true 
 
 /// Get computer's health condition.
      member c.GetHealthCondition : bool = isInfected

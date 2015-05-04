@@ -8,7 +8,7 @@ open System.Threading.Tasks
 open System.IO
 open Microsoft.FSharp.Collections
 
-/// Class that regiment behavior of system in infection process.
+/// Class that describe behavior of system in infection process.
 type Behavior() = 
      let mutable compList : Computer list = []
      let mutable infectedComputers = Array.create 4 false//is private?
