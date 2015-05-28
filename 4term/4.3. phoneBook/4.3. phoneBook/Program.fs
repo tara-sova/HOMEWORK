@@ -80,7 +80,7 @@ let rec menu (book : (string * string) list) =
              writeData.Close()
              menu (recordInPair [] list (list.Length - 1))
     | _ ->
-           System.Console.WriteLine("No such command")
-           menu (book)
+             System.Console.WriteLine("No such command")
+             menu (book)
 let start = 
-    menu[]
+    menu []
