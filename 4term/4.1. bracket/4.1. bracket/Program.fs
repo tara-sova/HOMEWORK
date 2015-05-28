@@ -12,34 +12,33 @@ let rec intoL (list : string list) (s : string) (pos : int) =
     else
         list
 
-let rec matching (list : string list) pos counter openB closeB=
-    if List.isEmpty list then "Balance is destroyed"
-    elif pos = list.Length then
-        if openB = closeB then "Ok"
-        else "Balance is destroyed"
-    elif (list.[pos] = "(" || list.[pos] = "[" || list.[pos] = "{") then 
-        matching list (pos + 1) counter (openB + 1) closeB
-    else
-        if (pos - 1 - (2 * counter) >= 0) then
-           if (list.[pos] = ")" && ( list.[pos - 1 - (2 * counter)] = "(" || list.[pos - 1] = "(" )) then 
-             matching list (pos + 1) (counter + 1) openB (closeB + 1)
-           elif (list.[pos] = "}" && ( list.[pos - 1 - (2 * counter)] = "{" || list.[pos - 1] = "{" )) then 
-               matching list (pos + 1) (counter + 1) openB (closeB + 1)
-           elif (list.[pos] = "]" && ( list.[pos - 1 - (2 * counter)] = "[" || list.[pos - 1] = "[" )) then
-               matching list (pos + 1) (counter + 1) openB (closeB + 1)
-           else 
-               matching [] pos counter openB (closeB + 1)
-        else 
-            matching [] pos counter openB (closeB + 1)
+let rec matching (list : string list) (stackList : string list) =
+    if (list.Length = 0 && stackList.Length = 0) then "Correct"
+    elif (list.Head = "{" || list.Head = "[" || list.Head = "(") then
+       matching list.Tail (list.Head :: stackList)
+    elif ((list.Head = "}" || list.Head = "]" || list.Head = ")") && stackList.IsEmpty) then "Incorrect"
+    elif list.Head = "}" then
+         if stackList.Head = "{" then matching list.Tail stackList.Tail
+         else "Incorrect"
+    elif list.Head = "]" then
+         if stackList.Head = "[" then matching list.Tail stackList.Tail
+         else "Incorrect"
+    elif list.Head = ")" then
+         if stackList.Head = "(" then matching list.Tail stackList.Tail
+         else "Incorrect"
+    else "Wrong record"
+        
 
 let isBalance (s : string) =
-    let (list : string list) = []
-    let nL = intoL list s (s.Length - 1)
-    let result = matching nL 0 0 0 0
-    result
+    let list = intoL [] s (s.Length - 1)
+    if list.IsEmpty then "Empty string"
+    else 
+        let result = matching list []
+        result
 
 let res1 = isBalance "{[({)]"; // - 
 let res2 = isBalance "{[([{}])]}" // +
 let res3 = isBalance "{[)"; // -
 let res4 = isBalance ")]("; // -
 let res5 = isBalance "[()([])]";; // +
+let res6 = isBalance "[({}){()}()]";; //+
