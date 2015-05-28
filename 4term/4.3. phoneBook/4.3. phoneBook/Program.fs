@@ -5,10 +5,12 @@ let writeValue outputStream (x: 'a) =
     let formatter = new BinaryFormatter()
     formatter.Serialize(outputStream, box x)
 
-let readValue inputStream =
+let readValue (inputStream : Stream) =
     let formatter = new BinaryFormatter()
-    let res = formatter.Deserialize(inputStream)
-    unbox res
+    if (inputStream.Length = int64 0) then []
+    else
+        let res = formatter.Deserialize(inputStream)
+        unbox res
 
 let createNote (book : (string * string) list) =
     System.Console.WriteLine("Name:")
@@ -45,7 +47,8 @@ let rec recordInPair (book : (string * string) list) (list : string list) pos =
 
 
 let rec menu (book : (string * string) list) = 
-    System.Console.WriteLine("Press:\n0 -- exit\n1 -- add a note\n2 -- find phone by name\n3 -- find name by number\n4 -- save data into file\n5 -- read data from file\n")
+    System.Console.WriteLine("Press:\n0 -- exit\n1 -- add a note\n2 -- find phone by name
+                              \n3 -- find name by number\n4 -- save data into file\n5 -- read data from file\n")
     let choice = System.Console.ReadLine()
     match choice with
     | "0" -> System.Console.WriteLine("GameOver")
@@ -60,9 +63,8 @@ let rec menu (book : (string * string) list) =
              System.Console.WriteLine("{0}\n", result)
              menu book
     | "3" ->
-             let bookForSearch = book
              System.Console.WriteLine("Number:")
-             let result = phoneByNumberSearch bookForSearch (System.Console.ReadLine())
+             let result = phoneByNumberSearch book (System.Console.ReadLine())
              System.Console.WriteLine("{0}\n", result)
              menu book
     | "4" ->
@@ -73,14 +75,10 @@ let rec menu (book : (string * string) list) =
              menu book
     | "5" -> 
              let writeData = new FileStream("data.txt", FileMode.Open);
-             if (book.IsEmpty) then 
-                System.Console.WriteLine("Book is empty\n")
-                menu book
-             else
-                 let list = readValue writeData
-                 System.Console.WriteLine("Data is received")
-                 writeData.Close()
-                 menu (recordInPair [] list (list.Length - 1))
+             let list = readValue writeData
+             System.Console.WriteLine("Data is received")
+             writeData.Close()
+             menu (recordInPair [] list (list.Length - 1))
     | _ ->
            System.Console.WriteLine("No such command")
            menu (book)
