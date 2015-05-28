@@ -26,6 +26,8 @@ let rec findPos (list : int list) coolPos length sum =
             findPos list.Tail coolPos length sum
 
 let start (list : int list) = 
-    findPos list (-1) (list.Length) (-1)
+    if list.Length = 1 then "Incorrect list's size"
+    else (findPos list (-1) (list.Length) (-1)).ToString()
 
-start [1; 5; 6; 2]
+let res = start [1]
+res
