@@ -106,17 +106,7 @@ type Enumerator<'a>(tree : Tree<'a>) =
 
     interface IEnumerator with
        member e.getCurrent() =
-        let current = (!list).Head :> obj 
-        list := (!list).Tail
-        current
 
-        member v.MoveNext() = 
-         match !list with
-         | [] ->
-            false
-         | _ -> 
-            true
-        member v.Reset() = list := (treeToList tree)
 
      interface IEnumerable<'a> with
         member e.GetEnumerator() = new Enumerator<'a>(tree) :> IEnumerator
