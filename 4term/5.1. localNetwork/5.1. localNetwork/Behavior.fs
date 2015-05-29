@@ -14,7 +14,7 @@ type Behavior() =
      let mutable infectedComputers = Array.create 4 false//is private?
 
 /// Change a system condition because of thread of infection.
-     member b.Behavior (matrix : int [,]) (computersFromStuff : 'Computer list) = 
+     member b.Behavior (matrix : int [,]) (computersFromStuff : Computer list) = 
          compList <- computersFromStuff
          infectedComputers <- Array.create (Array2D.length1 matrix) false
          b.FillingOfArray

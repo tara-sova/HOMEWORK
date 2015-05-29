@@ -12,8 +12,8 @@ let stuff = new StuffClass (infArr, matrixArr)
 stuff.Start()
 let behavior = new Behavior()
     
-behavior.Behavior (stuff.GetMatrix())  (stuff.GetArrayOfComputers())
-behavior.InternalInfection (stuff.GetMatrix()) extraIndex
+behavior.Behavior (stuff.GetMatrix())  (stuff.GetArrayOfComputers()) |> ignore
+behavior.InternalInfection (stuff.GetMatrix()) extraIndex |> ignore
 let conditionOf0 = behavior.GetComputerHealthCondition(0) //true
 let conditionOf1 = (behavior.GetComputerHealthCondition(1)) //false
 let conditionOf2 = (behavior.GetComputerHealthCondition(2)) //true
