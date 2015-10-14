@@ -29,7 +29,7 @@ namespace _1._2.fibonacci
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            int numberOfTheFibonaccisequence = 4;
+            int numberOfTheFibonaccisequence = 5;
             long result = Fibonacci(numberOfTheFibonaccisequence); 
             Console.Write("Result: {0} ", Fibonacci(numberOfTheFibonaccisequence));
         }

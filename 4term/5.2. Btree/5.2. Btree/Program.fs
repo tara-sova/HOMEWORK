@@ -8,7 +8,7 @@ open System
 open System.Collections
 open System.Collections.Generic                             
                                                                                  
-let mutable flag : bool = false                          
+let mutable detectFlag : bool = false                          
 
 type Tree<'a> = 
     | Tree of 'a * Tree<'a> * Tree<'a> 
@@ -75,7 +75,6 @@ type BTree<'a when 'a:comparison>() =
                             else Tip value
              | None -> Tip n
          tree <- insert tree n
-         tree
 
      member b.RemoveElement n  = 
          let rec remove firstTree n = 

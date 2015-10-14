@@ -15,6 +15,8 @@ namespace _1._2.local_network
             StuffClass stuff = new StuffClass("info1.txt");
             Behavior behavior = new Behavior(stuff.GetMatrix(), stuff.GetArrayOfComputers());
             behavior.InternalInfection(behavior.GetArray(), stuff.GetMatrix(), extraIndex);
+            bool res = behavior.GetComputerHealthCondition(2);
+            bool res1 = behavior.GetComputerHealthCondition(1);
             Assert.IsFalse(behavior.GetComputerHealthCondition(2));
             Assert.IsTrue(behavior.GetComputerHealthCondition(1));
         }
