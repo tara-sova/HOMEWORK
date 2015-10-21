@@ -1,12 +1,13 @@
 ﻿open System.Collections.Generic
 
-let Pi = 3.14159265//3.14
+let Pi = 3.14159265
 
 let c x = cos(x)
 let dC x = cos(x)
 
 let c10 x = cos(10.0 * x)
-let dC10 x = 10000.0 * cos(10.0 *x)
+let dC10_6 x = -1000000.0 * cos(10.0 *x)
+let dC10_12 x = 1000000000000.0 * cos(10.0 * x)
 
 let rec factorial n = 
     if n = 1 then 1
@@ -55,20 +56,29 @@ let action (f : float -> float) dF (interval : float * float) (nodes : float lis
         let difference = abs (Lagrange_x_i - f x_i)
         let A_i = findA_i f dF list interval x_i
         System.Console.WriteLine("{0}         {1}         {2}         {3}          {4}"
-                                 , System.Math.Round(x_i, 4), System.Math.Round(Lagrange_x_i, 4)
-                                 , System.Math.Round(f x_i, 4), System.Math.Round(difference, 4)
-                                 , System.Math.Round(A_i, 4) )
+                                 , System.Math.Round(x_i, 5), System.Math.Round(Lagrange_x_i, 5)
+                                 , System.Math.Round(f x_i, 5), System.Math.Round(difference, 5)
+                                 , System.Math.Round(A_i, 5) )
 
 let changeTable condition (list : float list) (interval : float * float)= 
     if condition = 0 then 
        System.Console.WriteLine ("\n\ntable for double number of nodes")
-       List.map (fun x -> x / 2.0) list
+       list @ List.map (fun x -> x / 2.001) list
     elif condition = 1 then 
          System.Console.WriteLine ("\n\ntable for right part of interval")
-         List.map (fun x -> (snd interval - (x / 2.0))) list
-    else 
-        System.Console.WriteLine ("\n\ntable for left part of interval")
-        List.map (fun x -> fst interval + (x / 2.0)) list
+         List.map (fun x -> 
+                            if x >= 0.0 then snd interval - (x / 2.0)
+                            else snd interval + (x / 2.0)
+                            ) list
+    elif condition = 2 then
+         System.Console.WriteLine ("\n\ntable for left part of interval")
+         List.map (fun x -> 
+                            if x >= 0.0 then fst interval + (x / 2.0)
+                            else fst interval - (x / 2.0)
+                            ) list
+    else
+        System.Console.WriteLine ("\n\ntable for middle part of interval")
+        List.map (fun x -> x / 2.0) list
 
 let mainFunc = 
     let fList = [Pi/6.0; Pi/4.0; Pi/3.0; Pi/2.0]
@@ -81,9 +91,10 @@ let mainFunc =
     let gList = [-0.87; -0.69; -0.11; 0.31; 0.58; 0.97]
     let gInterval = (-1.0, 1.0)
     System.Console.WriteLine("\n\ng = cos(10 * x) \nsimple table")
-    action c10 dC10 gInterval gList
-    for i = 0 to 2 do
-        action c10 dC10 fInterval (changeTable i gList gInterval)
+    action c10 dC10_6 gInterval gList
+    for i = 0 to 3 do
+        if i = 0 then action c10 dC10_12 gInterval (changeTable i gList gInterval)
+        else action c10 dC10_6 gInterval (changeTable i gList gInterval)
  
 
 
