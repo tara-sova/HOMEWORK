@@ -8,7 +8,7 @@ let pBeginning i t (y_0 : float) (delta : float list) (delta2 : float list) (del
 
 let pEnding i t (yList : float list) (delta : float list) (delta2 : float list) (delta3 : float list) (delta4 : float list) = 
     let y_n = yList.[i]
-    if (i - 4 >= 0) then 
+    if (i - 4 >= 0) then
        //printfn("----------ending meaning(5)    %A  %A  %A  %A %A") y_n delta.[i - 1] delta2.[i - 2] delta3.[i - 3] delta.[i - 4]
        y_n + ( t * delta.[i - 1]) + t * (t + 1.0) * delta2.[i - 2] / 2.0  + t * (t + 1.0) * (t + 2.0) * delta3.[i - 3] / 6.0 + t * (t + 1.0) * (t + 2.0) * (t + 3.0) * delta4.[i - 4] / 24.0
     else 
