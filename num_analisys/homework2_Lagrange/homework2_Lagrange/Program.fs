@@ -59,6 +59,15 @@ let action (f : float -> float) dF (interval : float * float) (nodes : float lis
                                  , System.Math.Round(x_i, 5), System.Math.Round(Lagrange_x_i, 5)
                                  , System.Math.Round(f x_i, 5), System.Math.Round(difference, 5)
                                  , System.Math.Round(A_i, 5) )
+//        printf "(%A;%A) " (System.Math.Round(x_i, 5)) (System.Math.Round(f x_i, 5)) 
+//    printf "\n\n"
+//    for i = 0 to 20 do
+//        let x_i = fst interval + ((snd interval - fst interval) / n) * (float i)
+//        let Lagrange_x_i = LagrangePolinom list x_i 
+//        let difference = abs (Lagrange_x_i - f x_i)
+//        let A_i = findA_i f dF list interval x_i
+//        printf "(%A;%A) " (System.Math.Round(x_i, 5)) (System.Math.Round(Lagrange_x_i, 5))
+
 
 let changeTable condition (list : float list) (interval : float * float)= 
     if condition = 0 then 
@@ -85,8 +94,9 @@ let mainFunc =
     let fInterval = (0.0, Pi/2.0)
     System.Console.WriteLine("f = cos(x) \nsimple table")
     action c dC fInterval fList
-    for i = 0 to 2 do
+    for i = 0 to 3 do
         action c dC fInterval (changeTable i fList fInterval)
+        printfn "\n"
 
     let gList = [-0.87; -0.69; -0.11; 0.31; 0.58; 0.97]
     let gInterval = (-1.0, 1.0)
@@ -94,7 +104,9 @@ let mainFunc =
     action c10 dC10_6 gInterval gList
     for i = 0 to 3 do
         if i = 0 then action c10 dC10_12 gInterval (changeTable i gList gInterval)
+                      //printfn "\n"
         else action c10 dC10_6 gInterval (changeTable i gList gInterval)
+             //printfn "\n"
  
 
 
